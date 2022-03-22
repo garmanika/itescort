@@ -211,10 +211,10 @@ button {
   clip: rect(0 0 0 0)
 }
 .web-check .check-box:checked + .check-style {
-  background-image: url(../img/icons/icons.svg#check);
-  background-size: 20px 20px;
+  background-image: url(../img/svg-origin/check.svg);
   background-repeat: no-repeat;
-  background-position: center
+  background-position: center;
+  background-size: 16px 12px
 }
 input[type=number] {
   -moz-appearance: textfield
@@ -228,11 +228,12 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0
 }
-.title {
+.section-title {
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
-  color: #263066
+  color: #263066;
+  margin: 0
 }
 .btn {
   background: #78cbff;
@@ -302,7 +303,8 @@ input[type=number]::-webkit-outer-spin-button {
 .header-box-feedback svg {
   width: 20px;
   height: 20px;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .btn.circle {
   padding: 6px;
@@ -320,9 +322,8 @@ input[type=number]::-webkit-outer-spin-button {
   border: none;
   padding: 0;
   margin: 0 0 0 16px;
-  width: 32px;
+  width: 24px;
   cursor: pointer;
-  height: 32px;
   opacity: 1
 }
 .menu-btn span {
@@ -342,7 +343,10 @@ input[type=number]::-webkit-outer-spin-button {
   display: none
 }
 .menu-btn.active {
-  margin-left: 20px
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 .menu-btn.active span {
   display: none
@@ -407,6 +411,7 @@ body.no-scroll-mobile {
   width: 24px;
   height: 24px;
   object-fit: cover;
+  display: block;
   color: #9498a6
 }
 .header-wrapper {
@@ -483,18 +488,17 @@ body.no-scroll-mobile {
 .mobile-navigation-menu span.mobile-navigation-sub-menu-heading-title:after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 0;
   left: auto;
-  right: 15px;
+  right: 10px;
   display: block;
-  width: 8px;
-  height: 8px;
-  margin: -4px 0 0;
-  border: 1px solid #4d4d4d;
-  border-width: 1px 1px 0 0;
-  -webkit-transform: rotate(225deg);
-  -ms-transform: rotate(225deg);
-  transform: rotate(225deg)
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/svg-origin/chevron-right.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(180deg)
 }
 .mobile-navigation-sub-menu-heading-cancel {
   display: block;
@@ -518,22 +522,20 @@ body.no-scroll-mobile {
 .header-menu ul > li.is-parent > a span::after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 0;
   left: auto;
-  right: 18px;
+  right: 10px;
   display: block;
-  width: 8px;
-  height: 8px;
-  margin: -4px 0 0;
-  border: 1px solid #4d4d4d;
-  border-width: 1px 1px 0 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg)
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/svg-origin/chevron-right.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center
 }
 .header-menu ul > li > a:focus span:after,
 .header-menu ul > li > a:hover span:after {
-  border-color: #fff
+  background-image: url(../img/svg-origin/chevron-right-hover.svg)
 }
 .header-menu-head {
   display: none
@@ -545,8 +547,7 @@ body.no-scroll-mobile {
   width: 100%;
   position: absolute;
   z-index: 0;
-  height: calc(100% + 48px);
-  top: -48px
+  height: 100%
 }
 .primary-bg-box-picture {
   width: 100%;
@@ -585,7 +586,7 @@ body.no-scroll-mobile {
   line-height: 24px;
   margin: 0
 }
-.section-title {
+.section-title-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -603,13 +604,14 @@ body.no-scroll-mobile {
 .section-title-link svg {
   width: 24px;
   height: 24px;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .projects-links .section-title-link {
   display: none
 }
 .projects-links-item-info-box {
-  top: -100%;
+  top: 0;
   left: 0;
   display: flex;
   align-items: center;
@@ -619,8 +621,9 @@ body.no-scroll-mobile {
   width: 100%;
   height: 100%;
   background: linear-gradient(0deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),#263066;
-  opacity: .92;
-  padding: 15px
+  opacity: 0;
+  padding: 15px;
+  transition: .35s linear
 }
 .projects-links-item-info-box img,
 .projects-links-item-info-box svg {
@@ -629,7 +632,8 @@ body.no-scroll-mobile {
   object-fit: cover;
   position: relative;
   top: 1px;
-  color: #fff
+  color: #fff;
+  display: block
 }
 .projects-links-item-info-box span {
   display: flex;
@@ -652,11 +656,14 @@ body.no-scroll-mobile {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
-  transition: .35s linear
+  transition: .25s
 }
 .projects-links-item:focus .projects-links-item-info-box,
 .projects-links-item:hover .projects-links-item-info-box {
-  top: 0
+  opacity: .92
+}
+span.projects-links-item-info-box-more {
+  font-size: 16px
 }
 .projects-links-item-img {
   position: relative;
@@ -744,17 +751,19 @@ body.no-scroll-mobile {
 .experience-short-item-title span {
   font-weight: 600
 }
+.experience-short-items {
+  margin-bottom: 40px
+}
 .experience-short-certificates {
-  margin-top: 40px;
   white-space: nowrap;
+  text-align: center;
   overflow: auto;
   scrollbar-width: thin;
-  display: flex
+  margin-right: -15px
 }
 ul.experience-short-certificates-list {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  display: inline-flex;
+  flex-flow: row nowrap;
   padding-bottom: 10px;
   gap: 15px;
   box-shadow: 0 10px 20px rgba(0,0,0,.05)
@@ -789,7 +798,8 @@ ul.experience-short-certificates-list a img {
 .feedback-slider-inner .swiper-pagination {
   bottom: 0;
   display: flex;
-  width: 100%
+  width: calc(100% - 60px);
+  margin: 0 30px
 }
 .feedback-slider-inner .swiper-pagination-bullet {
   display: flex;
@@ -809,24 +819,39 @@ ul.experience-short-certificates-list a img {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #9498a6;
-  gap: 12px
+  color: #9498a6
 }
-.feedback-slider-inner .swiper-pagination-bullet.swiper-pagination-bullet-active::after {
+.feedback-slider-inner .swiper-pagination-bullet.swiper-pagination-bullet-active::after,
+.feedback-slider-inner .swiper-pagination-bullet:focus::after,
+.feedback-slider-inner .swiper-pagination-bullet:hover::after {
   background: #78cbff
 }
 .feedback-slider-inner .swiper-pagination-bullet .number {
   display: none
 }
+.feedback-slider-inner .swiper-pagination-bullet:first-child {
+  gap: 12px;
+  width: calc(100%)
+}
 .feedback-slider-inner .swiper-pagination-bullet:first-child .number {
+  position: absolute;
+  left: -30px;
   display: block
 }
-.feedback-slider-inner .swiper-pagination-bullet:first-child .swiper-pagination-bullet,
+.feedback-slider-inner .swiper-pagination-bullet:first-child .swiper-pagination-bullet {
+  width: 100%
+}
+.feedback-slider-inner .swiper-pagination-bullet:last-child {
+  gap: 12px;
+  width: calc(100%)
+}
 .feedback-slider-inner .swiper-pagination-bullet:last-child .swiper-pagination-bullet {
   width: 100%
 }
 .feedback-slider-inner .swiper-pagination-bullet:last-child .number {
   order: 1;
+  position: absolute;
+  right: -30px;
   display: block
 }
 .feedback-slider-inner .swiper-pagination-bullet::after {
@@ -888,7 +913,8 @@ ul.experience-short-certificates-list a img {
   height: 24px;
   object-fit: cover;
   stroke: #72c1f2;
-  color: #72c1f2
+  color: #72c1f2;
+  display: block
 }
 .feedback-slider-item-link span {
   font-weight: 600;
@@ -1075,13 +1101,14 @@ ul.experience-short-certificates-list a img {
 }
 .modal .fancybox-button svg {
   width: 24px;
-  height: 24px
+  height: 24px;
+  display: block
 }
 .fancybox-slide--html {
   padding: 5px
 }
 .breadcrumbs {
-  padding: 24px 0 8px
+  margin-top: 24px
 }
 .breadcrumbs-list,
 .breadcrumbs-list li {
@@ -1112,7 +1139,7 @@ ul.experience-short-certificates-list a img {
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
-  margin: 0
+  margin: 8px 0 0
 }
 .page-title-box {
   margin-bottom: 32px
@@ -1125,13 +1152,18 @@ ul.experience-short-certificates-list a img {
   grid-template-columns: 1fr;
   gap: 15px
 }
-.feedback-control {
-  text-align: center;
-  margin-top: 32px
+.list-control {
+  text-align: center
 }
-.feedback-control .btn {
+.list-control .btn {
   display: block;
   width: 100%
+}
+.feedback-page .feedback-page-items,
+.feedback-page .projects-links-items,
+.projects-links-items-inner .feedback-page-items,
+.projects-links-items-inner .projects-links-items {
+  margin-bottom: 32px
 }
 .text-page :first-child {
   margin-top: 0
@@ -1305,6 +1337,56 @@ ul.experience-short-certificates-list a img {
 .text-page .responsive-table table tbody tr td:last-child {
   padding-right: 16px
 }
+.about .experience-short-items,
+.about .text-page {
+  margin-bottom: 60px
+}
+.about .feedback-slider-item-img {
+  margin-bottom: 24px;
+  text-align: center
+}
+.about .feedback-slider-item-img img {
+  width: 104px;
+  height: 104px;
+  object-fit: cover
+}
+.about .feedback-slider-inner {
+  margin-bottom: 40px
+}
+.list-links {
+  margin-top: 16px
+}
+.list-links ul {
+  overflow-x: auto;
+  display: flex;
+  gap: 32px;
+  white-space: nowrap;
+  padding-bottom: 7px
+}
+.list-links ul li.active {
+  position: relative
+}
+.list-links ul li.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #78cbff
+}
+.list-links ul li.active a {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #263066
+}
+.list-links ul li a {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #263066
+}
 @media (min-width:576px) {
   .header-menu ul > li > a span,
   .header-menu-footer,
@@ -1326,9 +1408,12 @@ ul.experience-short-certificates-list a img {
   .projects-links {
     margin-bottom: 80px
   }
+  .experience-short-certificates {
+    margin-right: 0
+  }
 }
 @media (min-width:768px) {
-  .title {
+  .section-title {
     font-size: 32px;
     line-height: 40px
   }
@@ -1348,7 +1433,7 @@ ul.experience-short-certificates-list a img {
     max-width: 720px
   }
   .primary-inner {
-    min-height: 452px;
+    min-height: 492px;
     padding: 80px 0;
     max-width: 552px
   }
@@ -1357,16 +1442,8 @@ ul.experience-short-certificates-list a img {
     line-height: 48px;
     margin-bottom: 24px
   }
-  .section-title {
+  .section-title-box {
     margin-bottom: 48px
-  }
-  .projects-links-items {
-    grid-template-columns: repeat(3,1fr);
-    gap: 30px
-  }
-  .experience-short-items {
-    grid-template-columns: repeat(4,1fr);
-    gap: 30px
   }
   ul.experience-short-certificates-list a img {
     width: 145px;
@@ -1375,8 +1452,10 @@ ul.experience-short-certificates-list a img {
   .experience-short {
     margin-bottom: 70px
   }
-  .experience-short-certificates {
-    margin-top: 54px
+  .experience-short-items {
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+    margin-bottom: 54px
   }
   .feedback-slider-inner .swiper-wrapper {
     padding-bottom: 56px
@@ -1454,7 +1533,10 @@ ul.experience-short-certificates-list a img {
     gap: 30px;
     grid-template-columns: repeat(2,1fr)
   }
-  .feedback-control .btn {
+  .projects-links-items-inner {
+    margin-bottom: 0
+  }
+  .list-control .btn {
     display: inline-block;
     max-width: 209px
   }
@@ -1495,6 +1577,23 @@ ul.experience-short-certificates-list a img {
   .text-page .responsive-table {
     margin-bottom: 32px
   }
+  .text-page h3 {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 48px 0 32px
+  }
+  .about .feedback-slider-inner {
+    margin-bottom: 54px
+  }
+  .feedback-page .feedback-page-items,
+  .feedback-page .projects-links-items,
+  .projects-links-items-inner .feedback-page-items,
+  .projects-links-items-inner .projects-links-items {
+    margin-bottom: 48px
+  }
+  .list-links {
+    margin-top: 24px
+  }
 }
 @media (min-width:992px) {
   .header-menu,
@@ -1526,7 +1625,7 @@ ul.experience-short-certificates-list a img {
     right: 33px
   }
   .header .mobile-navigation-menu .first-level {
-    top: 133px
+    top: 123px
   }
   .header .header-menu-footer {
     padding-bottom: 30px;
@@ -1551,22 +1650,35 @@ ul.experience-short-certificates-list a img {
   .header-box-logo-top {
     transition: .3s
   }
+  .header-box .menu-btn.active,
+  .header-box .menu-btn.active span {
+    display: block
+  }
+  .header-box .menu-btn.active svg {
+    display: none
+  }
+  .header-menu-head .menu-btn.active {
+    display: flex
+  }
+  .header-menu-head .menu-btn.active span {
+    display: none
+  }
+  .header-menu-head .menu-btn.active svg {
+    display: block
+  }
+  .header-menu-head .menu-btn span {
+    display: none
+  }
   .header.open-menu .header-box-logo-top {
     opacity: 0;
     pointer-events: none
   }
-  .header-wrapper {
-    padding: 24px 0
-  }
-  .content {
-    margin-top: 80px
-  }
-  .primary-bg {
-    top: -80px;
-    height: calc(100% + 80px)
-  }
   .primary-inner {
-    min-height: 338px
+    min-height: 388px
+  }
+  .projects-links-items {
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px
   }
   .projects-links {
     margin-bottom: 100px
@@ -1583,9 +1695,12 @@ ul.experience-short-certificates-list a img {
   .page-inner {
     padding-bottom: 80px
   }
-  .feedback-control .btn {
+  .list-control .btn {
     display: inline-block;
     max-width: 300px
+  }
+  .about .experience-short-items {
+    margin-bottom: 80px
   }
 }
 @media (min-width:1200px) {
@@ -1601,12 +1716,12 @@ ul.experience-short-certificates-list a img {
   .feedback-page-items {
     grid-template-columns: repeat(3,1fr)
   }
-  .feedback-control {
+  .list-control {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 30px
   }
-  .feedback-control .btn {
+  .list-control .btn {
     max-width: none;
     grid-column: 2/3
   }
@@ -1617,16 +1732,17 @@ ul.experience-short-certificates-list a img {
   .primary-inner {
     padding: 100px 0
   }
+  .about .experience-short-items,
   .experience-short {
     margin-bottom: 100px
   }
 }
 @media (min-width:1680px) {
   .primary-inner {
-    min-height: 460px;
+    min-height: 505px;
     max-width: 758px
   }
-  .title {
+  .section-title {
     font-size: 40px;
     line-height: 48px
   }
@@ -1645,5 +1761,8 @@ ul.experience-short-certificates-list a img {
   }
   .text-page .responsive-table {
     margin-bottom: 48px
+  }
+  .text-page h3 {
+    margin: 64px 0 32px
   }
 }

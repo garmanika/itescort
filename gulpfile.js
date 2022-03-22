@@ -28,7 +28,6 @@ gulp.task('script', function() {
 gulp.task('style', function() {
   return gulp.src([
     'node_modules/normalize.css/normalize.css',
-		'app/css/bootstrap-grid.css'
 	  ])
     
     .pipe(concat('libs.min.css'))

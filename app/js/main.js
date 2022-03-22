@@ -16,7 +16,7 @@ $(function () {
       $(".mobile-navigation-search-inner").removeClass("show");
       $(".mobile-navigation-sub-position").removeClass("active current");
     }
-		svg4everybody({});
+    svg4everybody({});
   });
 
   let mobileNavParent = $(".mobile-navigation-menu .is-parent > a");
@@ -44,7 +44,7 @@ $(function () {
       $(".header").removeClass("sticky");
     }
   });
-	
+
   const swiper = new Swiper(".feedback-slider", {
     slidesPerView: 1,
     spaceBetween: 30,
@@ -53,17 +53,29 @@ $(function () {
       el: ".feedback-slider .swiper-pagination",
       clickable: true,
       renderBullet: function (index, className) {
-        return (
-          '<span class="' +
-          className +
-          '"><span class="number">' +
-          0 +
-          (index + 1) +
-          "</span></span>"
-        );
+        if ((index + 1) >= 10) {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+        else {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            0 +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+
       },
     },
-		breakpoints: {
+    breakpoints: {
       320: {
         slidesPerView: 1,
         spaceBetween: 15,
@@ -74,35 +86,36 @@ $(function () {
         spaceBetween: 30,
         slidesPerGroup: 2,
       },
-			1200:{
+      1200: {
         slidesPerView: 3,
         spaceBetween: 30,
         slidesPerGroup: 3,
-			},
+      },
     },
   });
 
   let phoneInputs = $('.add-phone-mask');
-    phoneInputs.each(function(index, el) {
-        $(this).inputmask({
-            mask:"+7 (999) 999 99 99",
-            onBeforePaste: function(pastedValue, opts) {
-                let clearValue = pastedValue.replace(/\D/g, '');
-                if (clearValue.indexOf('89') === 0) {
-                    return clearValue.replace('89', '+79');
-                }
-            },
-            showMaskOnHover: false,
-            clearIncomplete: true
-        });
-    });
-
-    phoneInputs.on("keyup", function(event) {
-        let value = $(this).inputmask("unmaskedvalue");
-        if (value.length === 2) {
-            if (value.indexOf('89') === 0 || value.indexOf('79') === 0) {
-                $(this).val('9');
-            }
+  phoneInputs.each(function (index, el) {
+    $(this).inputmask({
+      mask: "+7 (999) 999 99 99",
+      onBeforePaste: function (pastedValue, opts) {
+        let clearValue = pastedValue.replace(/\D/g, '');
+        if (clearValue.indexOf('89') === 0) {
+          return clearValue.replace('89', '+79');
         }
+      },
+      showMaskOnHover: false,
+      clearIncomplete: true
     });
+  });
+
+  phoneInputs.on("keyup", function (event) {
+    let value = $(this).inputmask("unmaskedvalue");
+    if (value.length === 2) {
+      if (value.indexOf('89') === 0 || value.indexOf('79') === 0) {
+        $(this).val('9');
+      }
+    }
+  });
+
 });
