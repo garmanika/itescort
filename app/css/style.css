@@ -289,12 +289,16 @@ input[type=number]::-webkit-outer-spin-button {
 .header-box-logo img {
   width: 100px;
   height: 24px;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .header-inner {
   display: flex;
   justify-content: start;
   justify-content: space-between
+}
+.header-box-feedback {
+  transition: .25s
 }
 .header-box-feedback span {
   display: none
@@ -324,6 +328,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0 0 0 16px;
   width: 24px;
   cursor: pointer;
+  height: 32px;
   opacity: 1
 }
 .menu-btn span {
@@ -346,7 +351,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left: 16px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: end
 }
 .menu-btn.active span {
   display: none
@@ -483,14 +488,15 @@ body.no-scroll-mobile {
   line-height: 24px;
   color: #263066;
   position: relative;
-  display: block
+  display: block;
+  padding-right: 40px
 }
 .mobile-navigation-menu span.mobile-navigation-sub-menu-heading-title:after {
   content: "";
   position: absolute;
-  top: 0;
+  top: calc(50% - 10px);
   left: auto;
-  right: 10px;
+  right: 15px;
   display: block;
   width: 20px;
   height: 20px;
@@ -517,14 +523,15 @@ body.no-scroll-mobile {
   color: #263066
 }
 .header-menu ul > li.is-parent > a span {
-  position: relative
+  position: relative;
+  padding-right: 40px
 }
 .header-menu ul > li.is-parent > a span::after {
   content: "";
   position: absolute;
-  top: 0;
+  top: calc(50% - 10px);
   left: auto;
-  right: 10px;
+  right: 15px;
   display: block;
   width: 20px;
   height: 20px;
@@ -547,18 +554,11 @@ body.no-scroll-mobile {
   width: 100%;
   position: absolute;
   z-index: 0;
-  height: 100%
-}
-.primary-bg-box-picture {
-  width: 100%;
   height: 100%;
-  object-fit: contain;
-  display: block
-}
-.primary-bg-box-picture img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain
+  background-image: url(../img/title-bg-5.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain
 }
 .primary-inner {
   display: flex;
@@ -623,7 +623,7 @@ body.no-scroll-mobile {
   background: linear-gradient(0deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),#263066;
   opacity: 0;
   padding: 15px;
-  transition: .35s linear
+  transition: .25s
 }
 .projects-links-item-info-box img,
 .projects-links-item-info-box svg {
@@ -663,7 +663,8 @@ body.no-scroll-mobile {
   opacity: .92
 }
 span.projects-links-item-info-box-more {
-  font-size: 16px
+  font-size: 16px;
+  padding-left: 8px
 }
 .projects-links-item-img {
   position: relative;
@@ -676,7 +677,8 @@ span.projects-links-item-info-box-more {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .projects-links-item-img-bg {
   position: absolute;
@@ -705,7 +707,7 @@ span.projects-links-item-info-box-more {
   width: 100%
 }
 .experience-short {
-  margin-bottom: 50px
+  margin-bottom: 30px
 }
 .experience-short-items {
   display: grid;
@@ -737,10 +739,12 @@ span.projects-links-item-info-box-more {
   transform: translate(-50%,-50%);
   background: #78cbff
 }
-.experience-short-item-img img {
+.experience-short-item-img img,
+.experience-short-item-img svg {
   width: 48px;
   height: 48px;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .experience-short-item-title {
   font-weight: 400;
@@ -758,15 +762,13 @@ span.projects-links-item-info-box-more {
   white-space: nowrap;
   text-align: center;
   overflow: auto;
-  scrollbar-width: thin;
-  margin-right: -15px
+  scrollbar-width: thin
 }
 ul.experience-short-certificates-list {
   display: inline-flex;
   flex-flow: row nowrap;
-  padding-bottom: 10px;
   gap: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,.05)
+  padding: 0 15px
 }
 ul.experience-short-certificates-list::-webkit-scrollbar {
   width: 6px
@@ -787,7 +789,8 @@ ul.experience-short-certificates-list a img {
   border-radius: 5px;
   width: 129px;
   height: 74px;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .feedback-slider-inner .swiper-slide {
   height: auto
@@ -912,8 +915,6 @@ ul.experience-short-certificates-list a img {
   width: 24px;
   height: 24px;
   object-fit: cover;
-  stroke: #72c1f2;
-  color: #72c1f2;
   display: block
 }
 .feedback-slider-item-link span {
@@ -1147,6 +1148,9 @@ ul.experience-short-certificates-list a img {
 .page-inner {
   padding-bottom: 60px
 }
+.page-inner.about-page {
+  padding-bottom: 30px
+}
 .feedback-page-items {
   display: grid;
   grid-template-columns: 1fr;
@@ -1260,13 +1264,6 @@ ul.experience-short-certificates-list a img {
 .text-page ol > li {
   counter-increment: step-counter
 }
-.text-page::after {
-  visibility: hidden;
-  display: block;
-  content: "";
-  clear: both;
-  height: 0
-}
 .text-page blockquote {
   margin: 16px 0 40px;
   padding: 24px 16px;
@@ -1348,7 +1345,9 @@ ul.experience-short-certificates-list a img {
 .about .feedback-slider-item-img img {
   width: 104px;
   height: 104px;
-  object-fit: cover
+  object-fit: cover;
+  display: block;
+  margin: 0 auto
 }
 .about .feedback-slider-inner {
   margin-bottom: 40px
@@ -1367,7 +1366,7 @@ ul.experience-short-certificates-list a img {
   position: relative
 }
 .list-links ul li.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -1386,6 +1385,158 @@ ul.experience-short-certificates-list a img {
   font-size: 16px;
   line-height: 24px;
   color: #263066
+}
+.contacts-info-items {
+  display: grid;
+  gap: 16px
+}
+.contacts-info-items-adress,
+.contacts-info-items-mail,
+.contacts-info-items-tel {
+  display: grid;
+  padding-left: 36px;
+  position: relative
+}
+.contacts-info-items-adress img,
+.contacts-info-items-adress svg,
+.contacts-info-items-mail img,
+.contacts-info-items-mail svg,
+.contacts-info-items-tel img,
+.contacts-info-items-tel svg {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  display: block
+}
+.contacts-info-items-adress span,
+.contacts-info-items-mail span,
+.contacts-info-items-tel span {
+  width: fit-content;
+  display: block
+}
+.contacts-info-items-adress span + span,
+.contacts-info-items-mail span + span,
+.contacts-info-items-tel span + span {
+  margin-top: 8px
+}
+.contacts-info-items-tel span {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: #263066
+}
+.contacts-info-items-tel img,
+.contacts-info-items-tel svg {
+  top: 6px
+}
+.contacts-info-items-social {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: space-between
+}
+.contacts-info-items-adress span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #263066
+}
+.contacts-info-items-adress img,
+.contacts-info-items-adress svg {
+  top: 2px
+}
+.contacts-info-items-mail span {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #72c1f2;
+  border-bottom: 1px dashed #72c1f2;
+  padding-bottom: 2px
+}
+.contacts-info-items-mail img,
+.contacts-info-items-mail svg {
+  top: 3px
+}
+.contacts-info-items-social span {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000
+}
+.contacts-info-inner {
+  gap: 34px
+}
+.contacts-info {
+  margin-bottom: 40px
+}
+.prices-promo {
+  margin-bottom: 32px
+}
+ul.prices-promo-list {
+  position: relative;
+  padding: 0
+}
+ul.prices-promo-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 7px;
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: #eee
+}
+ul.prices-promo-list li {
+  padding-left: 32px;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #263066;
+  padding-top: 12px;
+  padding-bottom: 12px
+}
+ul.prices-promo-list li::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: -8px;
+  top: 17px;
+  background: #78cbff;
+  border-radius: 50%
+}
+.prices-items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px
+}
+.prices-item {
+  text-align: center;
+  color: #263066
+}
+.prices-item-img {
+  background: #f7f9ff;
+  padding: 36px 28px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-bottom: 24px
+}
+.prices-item-img img {
+  width: 48px;
+  height: 48px;
+  display: block
+}
+.prices-item-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px
+}
+.prices-item-price {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px
 }
 @media (min-width:576px) {
   .header-menu ul > li > a span,
@@ -1408,8 +1559,8 @@ ul.experience-short-certificates-list a img {
   .projects-links {
     margin-bottom: 80px
   }
-  .experience-short-certificates {
-    margin-right: 0
+  .contacts-info-items-social {
+    justify-content: start
   }
 }
 @media (min-width:768px) {
@@ -1424,7 +1575,8 @@ ul.experience-short-certificates-list a img {
   .header-box-feedback svg {
     display: none
   }
-  .menu-btn {
+  .menu-btn,
+  .menu-btn.active {
     margin-left: 30px
   }
   .header-menu ul > li > a span,
@@ -1450,7 +1602,7 @@ ul.experience-short-certificates-list a img {
     height: 84px
   }
   .experience-short {
-    margin-bottom: 70px
+    margin-bottom: 50px
   }
   .experience-short-items {
     grid-template-columns: repeat(4,1fr);
@@ -1529,6 +1681,9 @@ ul.experience-short-certificates-list a img {
   .page-inner {
     padding-bottom: 70px
   }
+  .page-inner.about-page {
+    padding-bottom: 40px
+  }
   .feedback-page-items {
     gap: 30px;
     grid-template-columns: repeat(2,1fr)
@@ -1540,18 +1695,22 @@ ul.experience-short-certificates-list a img {
     display: inline-block;
     max-width: 209px
   }
-  .text-page .img-right {
-    float: right;
-    max-width: calc(50% - 30px);
-    margin: 0 0 30px 30px;
+  .clearfix {
     position: relative
   }
-  .text-page .img-right::after {
+  .clearfix::after,
+  .clearfix::before {
     visibility: hidden;
     display: block;
     content: "";
     clear: both;
     height: 0
+  }
+  .text-page .img-right {
+    float: right;
+    max-width: calc(50% - 30px);
+    margin: 0 0 30px 30px;
+    position: relative
   }
   .text-page .img-left {
     float: left;
@@ -1594,6 +1753,12 @@ ul.experience-short-certificates-list a img {
   .list-links {
     margin-top: 24px
   }
+  .contacts-info-inner {
+    gap: 0
+  }
+  .contacts-info {
+    margin-bottom: 48px
+  }
 }
 @media (min-width:992px) {
   .header-menu,
@@ -1622,7 +1787,7 @@ ul.experience-short-certificates-list a img {
   }
   .header .header-menu ul > li.is-parent > a span::after,
   .header .mobile-navigation-menu span.mobile-navigation-sub-menu-heading-title:after {
-    right: 33px
+    right: 30px
   }
   .header .mobile-navigation-menu .first-level {
     top: 123px
@@ -1669,6 +1834,7 @@ ul.experience-short-certificates-list a img {
   .header-menu-head .menu-btn span {
     display: none
   }
+  .header.open-menu .header-box-feedback,
   .header.open-menu .header-box-logo-top {
     opacity: 0;
     pointer-events: none
@@ -1695,6 +1861,9 @@ ul.experience-short-certificates-list a img {
   .page-inner {
     padding-bottom: 80px
   }
+  .page-inner.about-page {
+    padding-bottom: 50px
+  }
   .list-control .btn {
     display: inline-block;
     max-width: 300px
@@ -1707,11 +1876,17 @@ ul.experience-short-certificates-list a img {
   .header-menu.active {
     max-width: 414px
   }
+  .experience-short {
+    margin-bottom: 70px
+  }
   .feedback {
     margin-bottom: 100px
   }
   .page-inner {
     padding-bottom: 100px
+  }
+  .page-inner.about-page {
+    padding-bottom: 70px
   }
   .feedback-page-items {
     grid-template-columns: repeat(3,1fr)
@@ -1732,9 +1907,76 @@ ul.experience-short-certificates-list a img {
   .primary-inner {
     padding: 100px 0
   }
-  .about .experience-short-items,
-  .experience-short {
+  .about .experience-short-items {
     margin-bottom: 100px
+  }
+  ul.prices-promo-list {
+    display: flex;
+    align-items: start;
+    border-left: none;
+    margin: 86px 0 0;
+    padding: 0 0 0 30px;
+    border-top: 1px solid #eee;
+    position: relative
+  }
+  ul.prices-promo-list li {
+    padding: 0;
+    max-width: 200px;
+    position: absolute
+  }
+  ul.prices-promo-list li:nth-child(1) {
+    left: 30px
+  }
+  ul.prices-promo-list li:nth-child(2) {
+    left: 167px
+  }
+  ul.prices-promo-list li:nth-child(3) {
+    left: 305px
+  }
+  ul.prices-promo-list li:nth-child(4) {
+    left: 443px
+  }
+  ul.prices-promo-list li:nth-child(5) {
+    left: 580px
+  }
+  ul.prices-promo-list li:nth-child(6) {
+    left: 718px
+  }
+  ul.prices-promo-list li:nth-child(7) {
+    left: 856px
+  }
+  ul.prices-promo-list li:nth-child(8) {
+    left: 994px
+  }
+  ul.prices-promo-list li:nth-child(odd) {
+    top: -86px
+  }
+  ul.prices-promo-list li:nth-child(odd)::before {
+    top: 77px
+  }
+  ul.prices-promo-list li:nth-child(odd)::after {
+    left: 0;
+    top: 55px
+  }
+  ul.prices-promo-list li:nth-child(even) {
+    top: 37px
+  }
+  ul.prices-promo-list li:nth-child(even)::before {
+    top: -44px
+  }
+  ul.prices-promo-list li:nth-child(even)::after {
+    left: 0;
+    top: -38px
+  }
+  ul.prices-promo-list li:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 30px;
+    background: #78cbff
+  }
+  ul.prices-promo-list li + li {
+    margin: 0
   }
 }
 @media (min-width:1680px) {
@@ -1764,5 +2006,49 @@ ul.experience-short-certificates-list a img {
   }
   .text-page h3 {
     margin: 64px 0 32px
+  }
+  ul.prices-promo-list li:nth-child(1) {
+    left: 30px
+  }
+  ul.prices-promo-list li:nth-child(2) {
+    left: 217px
+  }
+  ul.prices-promo-list li:nth-child(3) {
+    left: 405px
+  }
+  ul.prices-promo-list li:nth-child(4) {
+    left: 593px
+  }
+  ul.prices-promo-list li:nth-child(5) {
+    left: 780px
+  }
+  ul.prices-promo-list li:nth-child(6) {
+    left: 968px
+  }
+  ul.prices-promo-list li:nth-child(7) {
+    left: 1156px
+  }
+  ul.prices-promo-list li:nth-child(8) {
+    left: 1344px
+  }
+  ul.prices-promo-list li:nth-child(odd) {
+    top: -86px
+  }
+  ul.prices-promo-list li:nth-child(odd)::before {
+    top: 77px
+  }
+  ul.prices-promo-list li:nth-child(odd)::after {
+    left: 0;
+    top: 55px
+  }
+  ul.prices-promo-list li:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 30px;
+    background: #78cbff
+  }
+  ul.prices-promo-list li + li {
+    margin: 0
   }
 }

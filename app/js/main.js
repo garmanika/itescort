@@ -117,5 +117,24 @@ $(function () {
       }
     }
   });
+	ymaps.ready(init);
 
+	function init() {
+			let myMap = new ymaps.Map("map", {
+					center: [54.50337577744105,36.30289029629514],
+					zoom: 18
+			}, {
+					searchControlProvider: 'yandex#search'
+			});
+			// 6. Метка со своей картинкой.
+			
+			let myPlacemark = new ymaps.Placemark([54.50337577744105,36.30289029629514], null, {	
+					iconLayout: 'default#image',
+					iconImageHref: "/img/svg-origin/map-icon.svg",
+					iconImageSize: [32, 32],
+
+			});
+			myMap.geoObjects.add(myPlacemark);
+			myMap.controls.remove('zoomControl');
+	}
 });

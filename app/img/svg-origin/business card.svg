@@ -1,0 +1,23 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.75" y="8.75" width="46.5" height="30.5" rx="1.25" stroke="#263066" stroke-width="1.5"/>
+<rect x="0.75" y="8.75" width="46.5" height="30.5" rx="1.25" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+<path d="M27 17H29.5714" stroke="#263066" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M27 17H29.5714" stroke="black" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M27 22H29.5714" stroke="#263066" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M27 22H29.5714" stroke="black" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M27 27H29.5714" stroke="#263066" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M27 27H29.5714" stroke="black" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M27 32H29.5714" stroke="#263066" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M27 32H29.5714" stroke="black" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M32 17H42" stroke="#263066" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M32 17H42" stroke="black" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M32 22H42" stroke="#263066" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M32 22H42" stroke="black" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M32 27H42" stroke="#263066" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M32 27H42" stroke="black" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M32 32H42" stroke="#263066" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M32 32H42" stroke="black" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="14" cy="21" r="2.25" stroke="#78CBFF" stroke-width="1.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.4709 31.5149C18.4901 31.3459 18.5 31.1741 18.5 31C18.5 28.5147 16.4853 26.5 14 26.5C11.5147 26.5 9.5 28.5147 9.5 31C9.5 31.1741 9.50989 31.3459 9.52914 31.5149H8.02179C8.00736 31.3452 8 31.1735 8 31C8 27.6863 10.6863 25 14 25C17.3137 25 20 27.6863 20 31C20 31.1735 19.9926 31.3452 19.9782 31.5149H18.4709Z" fill="#78CBFF"/>
+<rect x="5.75" y="15.75" width="16.5" height="16.5" rx="1.25" stroke="#78CBFF" stroke-width="1.5"/>
+</svg>
