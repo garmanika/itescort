@@ -1,143 +1,3 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%
-}
-body {
-  margin: 0
-}
-details,
-main {
-  display: block
-}
-h1 {
-  font-size: 2em;
-  margin: .67em 0
-}
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible
-}
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace,monospace;
-  font-size: 1em
-}
-a {
-  background-color: transparent
-}
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
-  text-decoration: underline dotted
-}
-b,
-strong {
-  font-weight: bolder
-}
-small {
-  font-size: 80%
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline
-}
-sub {
-  bottom: -.25em
-}
-sup {
-  top: -.5em
-}
-img {
-  border-style: none
-}
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0
-}
-button,
-input {
-  overflow: visible
-}
-button,
-select {
-  text-transform: none
-}
-[type=button],
-[type=reset],
-[type=submit],
-button {
-  -webkit-appearance: button
-}
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner,
-button::-moz-focus-inner {
-  border-style: none;
-  padding: 0
-}
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring,
-button:-moz-focusring {
-  outline: ButtonText dotted 1px
-}
-fieldset {
-  padding: .35em .75em .625em
-}
-legend {
-  box-sizing: border-box;
-  color: inherit;
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal
-}
-progress {
-  vertical-align: baseline
-}
-textarea {
-  overflow: auto
-}
-[type=checkbox],
-[type=radio] {
-  box-sizing: border-box;
-  padding: 0
-}
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
-  height: auto
-}
-[type=search] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px
-}
-[type=search]::-webkit-search-decoration {
-  -webkit-appearance: none
-}
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit
-}
-summary {
-  display: list-item
-}
-[hidden],
-template {
-  display: none
-}
 *,
 ::after,
 ::before,
@@ -279,6 +139,7 @@ input[type=number]::-webkit-outer-spin-button {
   z-index: 99;
   background: #fff
 }
+.header.shadow,
 .header.sticky {
   box-shadow: 0 2px 5px rgba(0,0,0,.1)
 }
@@ -289,12 +150,16 @@ input[type=number]::-webkit-outer-spin-button {
 .header-box-logo img {
   width: 100px;
   height: 24px;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .header-inner {
   display: flex;
   justify-content: start;
   justify-content: space-between
+}
+.header-box-feedback {
+  transition: .25s
 }
 .header-box-feedback span {
   display: none
@@ -324,6 +189,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0 0 0 16px;
   width: 24px;
   cursor: pointer;
+  height: 32px;
   opacity: 1
 }
 .menu-btn span {
@@ -346,7 +212,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left: 16px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: end
 }
 .menu-btn.active span {
   display: none
@@ -483,14 +349,15 @@ body.no-scroll-mobile {
   line-height: 24px;
   color: #263066;
   position: relative;
-  display: block
+  display: block;
+  padding-right: 40px
 }
 .mobile-navigation-menu span.mobile-navigation-sub-menu-heading-title:after {
   content: "";
   position: absolute;
-  top: 0;
+  top: calc(50% - 10px);
   left: auto;
-  right: 10px;
+  right: 15px;
   display: block;
   width: 20px;
   height: 20px;
@@ -517,14 +384,15 @@ body.no-scroll-mobile {
   color: #263066
 }
 .header-menu ul > li.is-parent > a span {
-  position: relative
+  position: relative;
+  padding-right: 40px
 }
 .header-menu ul > li.is-parent > a span::after {
   content: "";
   position: absolute;
-  top: 0;
+  top: calc(50% - 10px);
   left: auto;
-  right: 10px;
+  right: 15px;
   display: block;
   width: 20px;
   height: 20px;
@@ -547,18 +415,10 @@ body.no-scroll-mobile {
   width: 100%;
   position: absolute;
   z-index: 0;
-  height: 100%
-}
-.primary-bg-box-picture {
-  width: 100%;
   height: 100%;
-  object-fit: contain;
-  display: block
-}
-.primary-bg-box-picture img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain
+  background-image: url(../img/title-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center top
 }
 .primary-inner {
   display: flex;
@@ -588,7 +448,7 @@ body.no-scroll-mobile {
 }
 .section-title-box {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 32px
 }
@@ -598,7 +458,11 @@ body.no-scroll-mobile {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: #72c1f2
+  color: #72c1f2;
+  margin-bottom: 1px
+}
+.section-title-link span {
+  line-height: 24px
 }
 .section-title-link img,
 .section-title-link svg {
@@ -623,12 +487,12 @@ body.no-scroll-mobile {
   background: linear-gradient(0deg,rgba(0,0,0,.2),rgba(0,0,0,.2)),#263066;
   opacity: 0;
   padding: 15px;
-  transition: .35s linear
+  transition: .25s
 }
 .projects-links-item-info-box img,
 .projects-links-item-info-box svg {
-  width: 24px;
-  height: 24px;
+  width: 14px;
+  height: 10px;
   object-fit: cover;
   position: relative;
   top: 1px;
@@ -656,14 +520,16 @@ body.no-scroll-mobile {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
-  transition: .25s
+  transition: .25s;
+  display: block
 }
 .projects-links-item:focus .projects-links-item-info-box,
 .projects-links-item:hover .projects-links-item-info-box {
   opacity: .92
 }
 span.projects-links-item-info-box-more {
-  font-size: 16px
+  font-size: 16px;
+  gap: 6.75px
 }
 .projects-links-item-img {
   position: relative;
@@ -676,7 +542,8 @@ span.projects-links-item-info-box-more {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .projects-links-item-img-bg {
   position: absolute;
@@ -705,7 +572,7 @@ span.projects-links-item-info-box-more {
   width: 100%
 }
 .experience-short {
-  margin-bottom: 50px
+  margin-bottom: 30px
 }
 .experience-short-items {
   display: grid;
@@ -737,10 +604,12 @@ span.projects-links-item-info-box-more {
   transform: translate(-50%,-50%);
   background: #78cbff
 }
-.experience-short-item-img img {
+.experience-short-item-img img,
+.experience-short-item-img svg {
   width: 48px;
   height: 48px;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .experience-short-item-title {
   font-weight: 400;
@@ -758,15 +627,15 @@ span.projects-links-item-info-box-more {
   white-space: nowrap;
   text-align: center;
   overflow: auto;
-  scrollbar-width: thin;
-  margin-right: -15px
+  scrollbar-width: thin
 }
 ul.experience-short-certificates-list {
   display: inline-flex;
   flex-flow: row nowrap;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   gap: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,.05)
+  padding-left: 15px;
+  padding-right: 15px
 }
 ul.experience-short-certificates-list::-webkit-scrollbar {
   width: 6px
@@ -787,7 +656,8 @@ ul.experience-short-certificates-list a img {
   border-radius: 5px;
   width: 129px;
   height: 74px;
-  object-fit: cover
+  object-fit: cover;
+  display: block
 }
 .feedback-slider-inner .swiper-slide {
   height: auto
@@ -912,8 +782,6 @@ ul.experience-short-certificates-list a img {
   width: 24px;
   height: 24px;
   object-fit: cover;
-  stroke: #72c1f2;
-  color: #72c1f2;
   display: block
 }
 .feedback-slider-item-link span {
@@ -1107,10 +975,14 @@ ul.experience-short-certificates-list a img {
 .fancybox-slide--html {
   padding: 5px
 }
-.breadcrumbs {
+.page-title-box {
   margin-top: 24px
 }
-.breadcrumbs-list,
+.breadcrumbs-list {
+  display: flex;
+  gap: 0 12px;
+  flex-wrap: wrap
+}
 .breadcrumbs-list li {
   display: inline-block
 }
@@ -1125,6 +997,10 @@ ul.experience-short-certificates-list a img {
   color: #72c1f2
 }
 .breadcrumbs-list li a span {
+  font-weight: 400;
+  line-height: 20px;
+  margin-left: 12px;
+  color: #ccc;
   font-size: 10px;
   position: relative;
   top: -1px
@@ -1168,6 +1044,9 @@ ul.experience-short-certificates-list a img {
 .text-page :first-child {
   margin-top: 0
 }
+.text-page :last-child {
+  margin-bottom: 0
+}
 .text-page p {
   font-weight: 400;
   font-size: 16px;
@@ -1178,24 +1057,21 @@ ul.experience-short-certificates-list a img {
 .text-page p b {
   font-weight: 600;
   font-size: 16px;
-  line-height: 24px;
-  display: inline-block
+  line-height: 24px
 }
 .text-page p a {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   text-decoration-line: underline;
-  color: #72c1f2;
-  display: inline-block
+  color: #72c1f2
 }
 .text-page p i {
   font-style: italic;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #9498a6;
-  display: inline-block
+  color: #9498a6
 }
 .text-page img {
   display: block;
@@ -1260,25 +1136,26 @@ ul.experience-short-certificates-list a img {
 .text-page ol > li {
   counter-increment: step-counter
 }
-.text-page::after {
-  visibility: hidden;
-  display: block;
-  content: "";
-  clear: both;
-  height: 0
-}
 .text-page blockquote {
   margin: 16px 0 40px;
-  padding: 24px 16px;
-  background: #f7f9ff
+  padding: 24px 16px 24px 34px;
+  background: #f7f9ff;
+  position: relative
+}
+.text-page blockquote::before {
+  content: "";
+  top: 24px;
+  left: 16px;
+  position: absolute;
+  width: 2px;
+  height: calc(100% - 48px);
+  background: #78cbff
 }
 .text-page blockquote p {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #263066;
-  padding-left: 16px;
-  border-left: 2px solid #78cbff;
   margin: 0
 }
 .text-page blockquote b {
@@ -1287,9 +1164,8 @@ ul.experience-short-certificates-list a img {
   line-height: 24px;
   padding-top: 16px;
   color: #263066;
-  padding-left: 16px;
-  border-left: 2px solid #78cbff;
-  margin: 0
+  margin: 0;
+  display: block
 }
 .text-page .responsive-table {
   max-width: 100%;
@@ -1301,40 +1177,38 @@ ul.experience-short-certificates-list a img {
   width: 100%;
   border-collapse: collapse
 }
-.text-page .responsive-table table thead tr {
-  background: #78cbff
-}
-.text-page .responsive-table table thead tr th {
+.text-page .responsive-table table th {
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
   color: #fff;
   text-align: left;
-  padding: 14px 8px
+  padding: 14px 8px;
+  background: #78cbff
 }
-.text-page .responsive-table table thead tr th:first-child {
+.text-page .responsive-table table th:first-child {
   padding-left: 16px
 }
-.text-page .responsive-table table thead tr th:last-child {
+.text-page .responsive-table table th:last-child {
   padding-right: 16px
 }
-.text-page .responsive-table table tbody tr {
+.text-page .responsive-table table tr {
   background: #fff
 }
-.text-page .responsive-table table tbody tr:nth-child(2n) {
+.text-page .responsive-table table tr:nth-child(2n) {
   background: #f7f9ff
 }
-.text-page .responsive-table table tbody tr td {
+.text-page .responsive-table table tr td {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   padding: 14px 8px;
   color: #263066
 }
-.text-page .responsive-table table tbody tr td:first-child {
+.text-page .responsive-table table tr td:first-child {
   padding-left: 16px
 }
-.text-page .responsive-table table tbody tr td:last-child {
+.text-page .responsive-table table tr td:last-child {
   padding-right: 16px
 }
 .about .experience-short-items,
@@ -1348,7 +1222,9 @@ ul.experience-short-certificates-list a img {
 .about .feedback-slider-item-img img {
   width: 104px;
   height: 104px;
-  object-fit: cover
+  object-fit: cover;
+  display: block;
+  margin: 0 auto
 }
 .about .feedback-slider-inner {
   margin-bottom: 40px
@@ -1367,7 +1243,7 @@ ul.experience-short-certificates-list a img {
   position: relative
 }
 .list-links ul li.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -1386,6 +1262,351 @@ ul.experience-short-certificates-list a img {
   font-size: 16px;
   line-height: 24px;
   color: #263066
+}
+.contacts-info-items {
+  display: grid;
+  gap: 16px
+}
+.contacts-info-items-adress,
+.contacts-info-items-mail,
+.contacts-info-items-tel {
+  display: grid;
+  padding-left: 36px;
+  position: relative
+}
+.contacts-info-items-adress img,
+.contacts-info-items-adress svg,
+.contacts-info-items-mail img,
+.contacts-info-items-mail svg,
+.contacts-info-items-tel img,
+.contacts-info-items-tel svg {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  display: block
+}
+.contacts-info-items-tel a {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: #263066
+}
+.contacts-info-items-tel img,
+.contacts-info-items-tel svg {
+  top: 6px
+}
+.contacts-info-items-social {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: space-between
+}
+.contacts-info-items-adress span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #263066
+}
+.contacts-info-items-adress img,
+.contacts-info-items-adress svg {
+  top: 2px
+}
+.contacts-info-items-adress-box,
+.contacts-info-items-box,
+.contacts-info-items-mail-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px
+}
+.contacts-info-items-box {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px
+}
+.contacts-info-items-mail a {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #72c1f2;
+  border-bottom: 1px dashed #72c1f2
+}
+.contacts-info-items-mail img,
+.contacts-info-items-mail svg {
+  top: 3px
+}
+.contacts-info-items-social span {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000
+}
+.contacts-info-inner {
+  gap: 34px
+}
+.contacts-info {
+  margin-bottom: 40px
+}
+.prices-promo {
+  margin-bottom: 32px
+}
+ul.prices-promo-list {
+  position: relative;
+  padding: 0
+}
+ul.prices-promo-list::before {
+  content: "";
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 7px;
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: #eee
+}
+ul.prices-promo-list li {
+  padding: 12px 0 12px 32px;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #263066
+}
+ul.prices-promo-list li::before {
+  content: "";
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin: -8px 0 0;
+  background: #78cbff;
+  border-radius: 50%
+}
+.prices-items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 60px
+}
+.prices-item {
+  text-align: center;
+  color: #263066;
+  padding: 32px 15px;
+  border: 1px solid #eee;
+  border-radius: 5px
+}
+.prices-item-img {
+  background: #f7f9ff;
+  width: 104px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  font-weight: 200;
+  font-size: 48px;
+  line-height: 1.24
+}
+.prices-item-img img {
+  width: 48px;
+  height: 48px;
+  display: block
+}
+.prices-item-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 8px
+}
+.prices-item-title span {
+  display: block;
+  font-size: 16px
+}
+.prices-item-price {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px
+}
+.prices-item-price span {
+  font-size: 18px;
+  line-height: 24px
+}
+.prices-example-inner {
+  margin-bottom: 60px
+}
+.prices-example .swiper-wrapper {
+  padding-bottom: 56px
+}
+.prices-example .swiper-pagination-bullet .number {
+  display: none
+}
+.prices-example .swiper-pagination {
+  bottom: 0;
+  display: flex;
+  width: calc(100% - 60px);
+  margin: 0 30px
+}
+.prices-example .swiper-pagination-bullet {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+  border-radius: none;
+  background: 0 0;
+  opacity: 1;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  padding-right: 0;
+  min-height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #9498a6
+}
+.prices-example .swiper-pagination-bullet:focus::after,
+.prices-example .swiper-pagination-bullet:hover::after {
+  background: #78cbff
+}
+.prices-example .swiper-pagination-bullet::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #eee;
+  transition: .25s
+}
+.prices-example .swiper-pagination-bullet:first-child {
+  gap: 12px;
+  width: 100%
+}
+.prices-example .swiper-pagination-bullet:first-child .number {
+  position: absolute;
+  left: -30px;
+  display: block
+}
+.prices-example .swiper-pagination-bullet:last-child {
+  gap: 12px;
+  width: 100%
+}
+.prices-example .swiper-pagination-bullet:last-child .number {
+  order: 1;
+  position: absolute;
+  right: -30px;
+  display: block
+}
+.clearfix {
+  position: relative
+}
+.clearfix::after,
+.clearfix::before {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0
+}
+.prices-example .swiper-pagination-bullet-active::after {
+  background: #78cbff
+}
+.experience-short-certificates-wrapper {
+  height: 74px;
+  overflow: visible
+}
+.project .text-page {
+  margin-bottom: 60px
+}
+.project-title-box {
+  padding-top: 75px;
+  text-align: center;
+  padding-bottom: 90px
+}
+.project-title {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  color: #fff
+}
+.project-link {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 8px;
+  color: #fff
+}
+ul.project-tasks {
+  margin-bottom: 32px
+}
+ul.project-tasks li {
+  display: block;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: 16px
+}
+ul.project-tasks li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: #78cbff
+}
+ul.project-tasks li + li {
+  margin-top: 32px
+}
+.project-made-items {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 40px 16px;
+  text-align: center;
+  margin-bottom: 45px
+}
+.project-made-item-bg {
+  width: 104px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  background: #f7f9ff;
+  border-radius: 50%;
+  font-weight: 200;
+  font-size: 48px;
+  line-height: 24%;
+  color: #263066
+}
+.project-made-item-title {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  max-width: 100px;
+  margin: 0 auto
+}
+.project-short {
+  padding: 0 15px;
+  margin-top: -50px
+}
+.project-short-img {
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto
+}
+.project-short-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
 }
 @media (min-width:576px) {
   .header-menu ul > li > a span,
@@ -1408,8 +1629,21 @@ ul.experience-short-certificates-list a img {
   .projects-links {
     margin-bottom: 80px
   }
-  .experience-short-certificates {
-    margin-right: 0
+  .contacts-info-items-social {
+    justify-content: start
+  }
+  .prices-items {
+    grid-template-columns: repeat(2,1fr)
+  }
+  .project-title-box {
+    padding-bottom: 100px
+  }
+  .project-short {
+    margin-top: -60px
+  }
+  .project-short-img {
+    width: 390px;
+    height: 228px
   }
 }
 @media (min-width:768px) {
@@ -1424,7 +1658,8 @@ ul.experience-short-certificates-list a img {
   .header-box-feedback svg {
     display: none
   }
-  .menu-btn {
+  .menu-btn,
+  .menu-btn.active {
     margin-left: 30px
   }
   .header-menu ul > li > a span,
@@ -1450,7 +1685,7 @@ ul.experience-short-certificates-list a img {
     height: 84px
   }
   .experience-short {
-    margin-bottom: 70px
+    margin-bottom: 50px
   }
   .experience-short-items {
     grid-template-columns: repeat(4,1fr);
@@ -1542,22 +1777,15 @@ ul.experience-short-certificates-list a img {
   }
   .text-page .img-right {
     float: right;
-    max-width: calc(50% - 30px);
+    max-width: calc(50% - 15px);
     margin: 0 0 30px 30px;
     position: relative
-  }
-  .text-page .img-right::after {
-    visibility: hidden;
-    display: block;
-    content: "";
-    clear: both;
-    height: 0
   }
   .text-page .img-left {
     float: left;
     margin: 0 30px 30px 0;
     position: relative;
-    max-width: calc(50% - 30px)
+    max-width: calc(50% - 15px)
   }
   .text-page .img-left::after {
     visibility: hidden;
@@ -1567,7 +1795,12 @@ ul.experience-short-certificates-list a img {
     height: 0
   }
   .text-page blockquote {
-    padding: 30px
+    padding: 30px 30px 30px 48px
+  }
+  .text-page blockquote::before {
+    top: 30px;
+    height: calc(100% - 60px);
+    left: 30px
   }
   .text-page h2 {
     font-size: 24px;
@@ -1593,6 +1826,33 @@ ul.experience-short-certificates-list a img {
   }
   .list-links {
     margin-top: 24px
+  }
+  .contacts-info-inner {
+    gap: 0
+  }
+  .contacts-info,
+  .prices-promo {
+    margin-bottom: 48px
+  }
+  .prices-example-inner,
+  .prices-items {
+    margin-bottom: 70px
+  }
+  .experience-short-certificates-wrapper {
+    height: 84px
+  }
+  .project-made-items {
+    grid-template-columns: repeat(4,1fr)
+  }
+  .project-title-box {
+    padding-bottom: 110px
+  }
+  .project-short {
+    margin-top: -65px
+  }
+  .project-short-img {
+    width: 450px;
+    height: 262px
   }
 }
 @media (min-width:992px) {
@@ -1622,7 +1882,7 @@ ul.experience-short-certificates-list a img {
   }
   .header .header-menu ul > li.is-parent > a span::after,
   .header .mobile-navigation-menu span.mobile-navigation-sub-menu-heading-title:after {
-    right: 33px
+    right: 30px
   }
   .header .mobile-navigation-menu .first-level {
     top: 123px
@@ -1631,6 +1891,13 @@ ul.experience-short-certificates-list a img {
     padding-bottom: 30px;
     padding-right: 30px;
     padding-left: 30px
+  }
+  .header {
+    transition: .3s
+  }
+  .header.open-menu {
+    background: 0 0;
+    box-shadow: none
   }
   .header-menu {
     top: 0
@@ -1669,6 +1936,7 @@ ul.experience-short-certificates-list a img {
   .header-menu-head .menu-btn span {
     display: none
   }
+  .header.open-menu .header-box-feedback,
   .header.open-menu .header-box-logo-top {
     opacity: 0;
     pointer-events: none
@@ -1699,13 +1967,23 @@ ul.experience-short-certificates-list a img {
     display: inline-block;
     max-width: 300px
   }
-  .about .experience-short-items {
+  .about .experience-short-items,
+  .prices-items {
     margin-bottom: 80px
+  }
+  .prices-example-inner {
+    margin-bottom: 30px
+  }
+  .project-title-box {
+    padding-top: 80px
   }
 }
 @media (min-width:1200px) {
   .header-menu.active {
     max-width: 414px
+  }
+  .experience-short {
+    margin-bottom: 70px
   }
   .feedback {
     margin-bottom: 100px
@@ -1725,16 +2003,92 @@ ul.experience-short-certificates-list a img {
     max-width: none;
     grid-column: 2/3
   }
-  .text-page blockquote b,
-  .text-page blockquote p {
-    padding-left: 30px
+  .text-page blockquote {
+    padding-left: 62px
   }
   .primary-inner {
     padding: 100px 0
   }
-  .about .experience-short-items,
-  .experience-short {
+  .about .experience-short-items {
     margin-bottom: 100px
+  }
+  .prices-promo {
+    padding: 86px 0
+  }
+  ul.prices-promo-list {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: start;
+    padding: 0 0 0 30px;
+    position: relative;
+    gap: 121px
+  }
+  ul.prices-promo-list::before {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px
+  }
+  ul.prices-promo-list li {
+    flex: 0 0 auto;
+    padding: 0
+  }
+  ul.prices-promo-list li span {
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    width: 200px
+  }
+  ul.prices-promo-list li:last-child span {
+    width: 100%
+  }
+  ul.prices-promo-list li:nth-child(odd) span {
+    bottom: 38px
+  }
+  ul.prices-promo-list li:nth-child(even) span {
+    top: 38px
+  }
+  ul.prices-promo-list li::before {
+    top: 0;
+    left: 0;
+    margin: -8px 0 0
+  }
+  ul.prices-promo-list li::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    width: 1px;
+    height: 30px;
+    background: #78cbff
+  }
+  ul.prices-promo-list li:nth-child(odd)::after {
+    bottom: 0
+  }
+  ul.prices-promo-list li:nth-child(even)::after {
+    top: 0
+  }
+  .prices-items {
+    grid-template-columns: repeat(4,1fr);
+    margin-bottom: 100px
+  }
+  .prices-example-inner {
+    margin-bottom: 50px
+  }
+  .project-title-box {
+    padding-bottom: 150px
+  }
+  .project-short {
+    margin-top: -110px
+  }
+  .project-short-img {
+    width: 598px;
+    height: 348px
+  }
+}
+@media (min-width:1400px) {
+  ul.prices-promo-list {
+    gap: 150px
   }
 }
 @media (min-width:1680px) {
@@ -1764,5 +2118,21 @@ ul.experience-short-certificates-list a img {
   }
   .text-page h3 {
     margin: 64px 0 32px
+  }
+  ul.prices-promo-list {
+    gap: 171px
+  }
+  .prices-promo {
+    margin-bottom: 64px
+  }
+  .project-title-box {
+    padding-bottom: 160px
+  }
+  .project-short {
+    margin-top: -120px
+  }
+  .project-short-img {
+    width: 764px;
+    height: 443px
   }
 }
