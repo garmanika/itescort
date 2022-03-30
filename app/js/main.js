@@ -19,6 +19,7 @@ $(function () {
     svg4everybody({});
   });
 
+
   let mobileNavParent = $(".mobile-navigation-menu .is-parent > a");
   let mobileNavBack = $(".mobile-navigation-sub-menu-heading");
   mobileNavParent.on("click", function (e) {
@@ -93,6 +94,129 @@ $(function () {
       },
     },
   });
+  const swiper2 = new Swiper(".prices-example", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    pagination: {
+      el: ".prices-example .swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        if ((index + 1) >= 10) {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+        else {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            0 +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+
+      },
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 15,
+        slidesPerGroup: 1,
+      },
+      769: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        slidesPerGroup: 2,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 2,
+      },
+    },
+  });
+  const swiper3 = new Swiper(".project-preview-slider", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    pagination: {
+      el: ".project-preview-slider .swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        if ((index + 1) >= 10) {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+        else {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            0 +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+
+      },
+    },
+		navigation: {
+      nextEl: ".project-preview-slider .swiper-button-next",
+      prevEl: ".project-preview-slider .swiper-button-prev",
+    },
+  });
+  const swiper4 = new Swiper(".project-slider", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    pagination: {
+      el: ".project-slider .swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        if ((index + 1) >= 10) {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+        else {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            0 +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+
+      },
+    },
+		navigation: {
+      nextEl: ".project-slider .swiper-button-next",
+      prevEl: ".project-slider .swiper-button-prev",
+    },
+  });
+
+
 
   let phoneInputs = $('.add-phone-mask');
   phoneInputs.each(function (index, el) {
@@ -117,24 +241,54 @@ $(function () {
       }
     }
   });
-	ymaps.ready(init);
+  // ymaps.ready(init);
 
-	function init() {
-			let myMap = new ymaps.Map("map", {
-					center: [54.50337577744105,36.30289029629514],
-					zoom: 18
-			}, {
-					searchControlProvider: 'yandex#search'
-			});
-			// 6. Метка со своей картинкой.
-			
-			let myPlacemark = new ymaps.Placemark([54.50337577744105,36.30289029629514], null, {	
-					iconLayout: 'default#image',
-					iconImageHref: "/img/svg-origin/map-icon.svg",
-					iconImageSize: [32, 32],
+  // function init() {
+  //   let myMap = new ymaps.Map("map", {
+  //     center: [54.50337577744105, 36.30289029629514],
+  //     zoom: 18
+  //   }, {
+  //     searchControlProvider: 'yandex#search'
+  //   });
+  //   // Метка со своей картинкой.
 
-			});
-			myMap.geoObjects.add(myPlacemark);
-			myMap.controls.remove('zoomControl');
-	}
+  //   let myPlacemark = new ymaps.Placemark([54.50337577744105, 36.30289029629514], null, {
+  //     iconLayout: 'default#image',
+  //     iconImageHref: "img/svg-origin/map-icon.svg",
+  //     iconImageSize: [32, 32],
+
+  //   });
+  //   myMap.geoObjects.add(myPlacemark);
+  //   myMap.controls.remove('zoomControl');
+  // }
+  ymaps.ready(init);
+  let myMap;
+
+  function init() {
+
+    let i;
+    let place;
+    let pointer = [[54.50337577744105, 36.30289029629514], [54.52, 36.25]];
+
+    let myMap = new ymaps.Map("map", {
+
+      center: [54.50337577744105, 36.30289029629514],
+      zoom: 13,
+
+
+    });
+
+    for (i = 0; i < pointer.length; ++i) {
+
+      place = new ymaps.Placemark(pointer[i],{},{
+        iconLayout: 'default#image',
+        iconImageHref: "img/svg-origin/map-icon.svg",
+        iconImageSize: [32, 32],
+      }     
+      );
+      myMap.geoObjects.add(place);
+
+    }
+
+  };
 });

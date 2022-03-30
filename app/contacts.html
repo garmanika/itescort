@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@200;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/swiper-bundle.css" />
@@ -21,7 +21,7 @@
   <body>
     <div class="wrapper-page">
       <div class="content">
-        <header class="header">
+        <header class="header shadow">
           <div class="header-wrapper">
             <div class="container">
               <div class="header-inner">
@@ -399,7 +399,7 @@
             </div>
           </div>
         </header>
-        <div class="page-inner">
+        <main class="page-inner">
           <div class="page-title-box">
             <div class="container">
               <div class="breadcrumbs">
@@ -423,8 +423,8 @@
                   <div class="row contacts-info-inner">
                     <div class="col-12 col-md-6 col-xxxl-3">
                       <div class="contacts-info-items">
-                        <a
-                          href="tel:+74842333470"
+                        <div
+                          
                           class="contacts-info-items-tel"
                         >
                           <svg
@@ -443,10 +443,10 @@
                             />
                           </svg>
                           <div class="contacts-info-items-box">
-                            <span>+7 (4842) 33-34-70</span>
-                            <span>+7 (4842) 33-34-70</span>
+                            <a href="tel:+74842333470">+7 (4842) 33-34-70</a>,
+                            <a href="tel:+74842333470">+7 (4842) 33-34-70</a>
                           </div>
-                        </a>
+                        </div>
                         <div class="contacts-info-items-adress">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -478,12 +478,13 @@
                             </defs>
                           </svg>
                           <div class="contacts-info-items-adress-box">
-                            <span> Калуга, ул. Болдина, 57, офис 508 </span>
+                            <span>Калуга, ул. Болдина, 57, офис 508</span>
+                            <span>Калуга, ул. Болдина, 57, офис 508 </span>
+     
                             
                           </div>
                         </div>
-                        <a
-                          href="mailto:info@itescort.ru"
+                        <div
                           class="contacts-info-items-mail"
                         >
                           <svg
@@ -499,11 +500,12 @@
                             />
                           </svg>
 													<div class="contacts-info-items-mail-box">
-														<span>info@itescort.ru</span>
-														<span>info@itescort.ru</span>
+														<a href="mailto:info@itescort.ru">info@itescort.ru</a>,
+														<a href="mailto:info@itescort.ru">info@itescort.ru</a>,
+														<a href="mailto:info@itescort.ru">info@itescort.ru</a>
 													</div>
                           
-                        </a>
+                        </div>
                       </div>
                     </div>
                     <div class="col-12 col-md-6 col-xxxl-9">
@@ -571,7 +573,7 @@
               </div>
             </div>
           </section>
-        </div>
+        </main>
       </div>
       <footer class="footer">
         <div class="footer-top">
@@ -702,6 +704,14 @@
         </form>
       </div>
     </div>
+		<div id="modal-success" style="display: none" class="modal modal-modal-success">
+			<div class="modal-inner">
+				<div class="modal-info-inner">
+					<div class="modal-info-title">Спасибо! </div>
+					<div class="modal-info-subtitle">Наши менеджеры свяжутся с вами</div>
+				</div>
+			</div>
+		</div>
     <script src="js/svg4everybody.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
