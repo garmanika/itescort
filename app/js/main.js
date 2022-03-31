@@ -143,6 +143,78 @@ $(function () {
       },
     },
   });
+  const swiper3 = new Swiper(".project-preview-slider", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    pagination: {
+      el: ".project-preview-slider .swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        if ((index + 1) >= 10) {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+        else {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            0 +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+
+      },
+    },
+		navigation: {
+      nextEl: ".project-preview-slider .swiper-button-next",
+      prevEl: ".project-preview-slider .swiper-button-prev",
+    },
+  });
+  const swiper4 = new Swiper(".project-slider", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    pagination: {
+      el: ".project-slider .swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        if ((index + 1) >= 10) {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+        else {
+          return (
+            '<span class="' +
+            className +
+            '"><span class="number">' +
+            0 +
+            (index + 1) +
+            "</span></span>"
+          );
+        }
+
+      },
+    },
+		navigation: {
+      nextEl: ".project-slider .swiper-button-next",
+      prevEl: ".project-slider .swiper-button-prev",
+    },
+  });
 
 
 
