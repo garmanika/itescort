@@ -209,8 +209,7 @@ input[type="number"]::-webkit-outer-spin-button {
   span {
     display: block;
     width: 24px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      #263066;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #263066;
     height: 1.5px;
     transition: 0.5s;
     &.menu-btn-medium {
@@ -401,10 +400,8 @@ body.no-scroll-mobile {
   padding-right: 15px;
   margin: 0 auto;
 }
-.mobile-navigation-sub-menu-heading:hover
-  .mobile-navigation-sub-menu-heading-cancel,
-.mobile-navigation-sub-menu-heading:focus
-  .mobile-navigation-sub-menu-heading-cancel {
+.mobile-navigation-sub-menu-heading:hover .mobile-navigation-sub-menu-heading-cancel,
+.mobile-navigation-sub-menu-heading:focus .mobile-navigation-sub-menu-heading-cancel {
   color: $main;
 }
 .header-menu ul > li.is-parent > a span {
@@ -524,8 +521,7 @@ body.no-scroll-mobile {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    #263066;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #263066;
 
   opacity: 0;
   padding: 15px;
@@ -588,11 +584,7 @@ span.projects-links-item-info-box-more {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 55.56%,
-    rgba(38, 42, 66, 0.8) 100%
-  );
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55.56%, rgba(38, 42, 66, 0.8) 100%);
 }
 .projects-links-item-title {
   position: absolute;
@@ -944,8 +936,7 @@ ul.experience-short-certificates-list {
   }
 }
 .modal-select {
-  background: url(../img/svg-origin/chevron-down.svg) center/24px 24px no-repeat
-    #fff;
+  background: url(../img/svg-origin/chevron-down.svg) center/24px 24px no-repeat #fff;
   display: block;
   width: 100%;
   padding: 12px 56px 12px 18px;
@@ -1045,8 +1036,7 @@ ul.experience-short-certificates-list {
   }
 }
 .fancybox-bg {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    rgba(38, 48, 102, 0.65);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), rgba(38, 48, 102, 0.65);
 }
 .modal .fancybox-button svg {
   width: 24px;
@@ -1659,6 +1649,9 @@ ul.prices-promo-list {
   overflow: visible;
 }
 .project {
+  .prices-example-inner {
+    margin-bottom: 0;
+  }
 }
 .project-title-box {
   padding-top: 75px;
@@ -1668,7 +1661,7 @@ ul.prices-promo-list {
   &::after {
     content: "";
     position: absolute;
-    bottom: -69px;
+    top: calc(100% - 1px);
     left: 0;
     background: inherit;
     width: 100%;
@@ -1681,12 +1674,13 @@ ul.prices-promo-list {
   font-size: 32px;
   line-height: 40px;
   color: #ffffff;
+  margin-bottom: 8px;
 }
-.project-link {
+.project-subtitle {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  margin-top: 8px;
+
   color: #ffffff;
 }
 ul.project-tasks {
@@ -1698,6 +1692,7 @@ ul.project-tasks {
     font-size: 16px;
     line-height: 24px;
     padding-left: 16px;
+    color: $main;
     &::before {
       content: "";
       position: absolute;
@@ -1732,7 +1727,6 @@ ul.project-tasks {
   border-radius: 50%;
   font-weight: 200;
   font-size: 48px;
-  line-height: 24%;
   color: $main;
   margin-bottom: 24px;
 }
@@ -1740,8 +1734,7 @@ ul.project-tasks {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  max-width: 100px;
-  margin: 0 auto;
+  color: $main;
 }
 .project-short {
   padding: 0 15px;
@@ -1753,10 +1746,12 @@ ul.project-tasks {
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  height: 174px;
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 .project .text-page {
@@ -1769,7 +1764,7 @@ ul.project-tasks {
   &::before {
     content: "";
     position: absolute;
-    top: -69px;
+    bottom: calc(100% - 1px);
     left: 0;
     background: inherit;
     width: 100%;
@@ -1779,7 +1774,7 @@ ul.project-tasks {
   &::after {
     content: "";
     position: absolute;
-    bottom: -69px;
+    top: calc(100% - 1px);
     left: 0;
     background: inherit;
     width: 100%;
@@ -1791,11 +1786,21 @@ ul.project-tasks {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
 }
+// .project-personal-acc-img {
+//   @include container-img;
+//   padding-bottom: 94%;
+//   img {
+//     @include img;
+//     object-fit: contain;
+//   }
+// }
 .project-personal-acc-img {
-  @include container-img;
-  padding-bottom: 94%;
+  height: 220px;
+  margin: 0 auto 50px;
   img {
-    @include img;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 .project-personal-acc-info-title {
@@ -1813,17 +1818,17 @@ ul.project-tasks {
 }
 .project-font-inner {
   //min-height: 612px;
-  padding-top: 252px;
-  padding-bottom: 336px;
+  padding-top: 182px;
+  padding-bottom: 287px;
   position: relative;
   text-align: center;
 }
 .project-font-title {
   font-weight: 400;
   font-size: 49px;
-  line-height: 1.24;
+  line-height: 1.2;
   color: $main;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 .project-font-info {
   font-weight: 400;
@@ -1851,15 +1856,15 @@ ul.project-tasks {
     height: 48px;
   }
   &.circle-1 {
-    right: 32px;
+    right: calc(50% - 104px);
     top: 11px;
   }
   &.circle-2 {
     top: 77px;
-    left: 60px;
+    right: calc(50% + 65px);
   }
   &.circle-3 {
-    left: 14px;
+    right: calc(50% + 86px);
     bottom: 186px;
   }
   &.circle-4 {
@@ -1878,7 +1883,7 @@ ul.project-tasks {
   &::before {
     content: "";
     position: absolute;
-    top: -69px;
+    bottom: calc(100% - 1px);
     left: 0;
     background: inherit;
     width: 100%;
@@ -1888,7 +1893,7 @@ ul.project-tasks {
   &::after {
     content: "";
     position: absolute;
-    bottom: -69px;
+    top: calc(100% - 1px);
     left: 0;
     background: inherit;
     width: 100%;
@@ -2138,12 +2143,14 @@ ul.project-tasks {
 }
 .project-cart-info-inner {
   display: grid;
-  grid-template-areas: 
-	"project-cart-title"
-	"project-cart-img"
-	"project-cart-info";
+  grid-template-areas:
+    "project-cart-title"
+    "project-cart-img"
+    "project-cart-info";
+  grid-template-columns: 1fr;
   .section-title-box {
     grid-area: project-cart-title;
+    margin-bottom: 32px;
   }
   .text-page {
     grid-area: project-cart-info;
@@ -2152,11 +2159,44 @@ ul.project-tasks {
 .project-cart-info-img {
   grid-area: project-cart-img;
   margin-bottom: 24px;
+  @include container-img;
+  padding-bottom: 66%;
   img {
-    width: 100%;
-    height: 100%;
+    @include img;
   }
 }
+.project .project-cart-info {
+  .text-page {
+    margin-bottom: 0;
+  }
+}
+.project-sketch {
+  margin-bottom: 60px;
+}
+.project-sketch-img {
+  height: 560px;
+}
+.project-sketch img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.project-sketch-img {
+}
+.project-sketch.mod {
+  position: relative;
+  height: 560px;
+  .project-sketch-img {
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    background-image: url(../img/project-sketch.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+}
+
 @media (min-width: 576px) {
   .header-menu ul > li > a span,
   .header-menu-footer,
@@ -2203,7 +2243,6 @@ ul.project-tasks {
     margin-top: -60px;
   }
   .project-short-img {
-    width: 390px;
     height: 228px;
   }
   .project-short .text-page {
@@ -2215,12 +2254,10 @@ ul.project-tasks {
   .project-personal-acc::after,
   .project-preview::after {
     height: 101px;
-    bottom: -99px;
   }
   .project-personal-acc::before,
   .project-preview::before {
     height: 101px;
-    top: -99px;
   }
   .project-made {
     margin-bottom: 125px;
@@ -2261,6 +2298,10 @@ ul.project-tasks {
   }
   .project-slider-inner {
     margin-bottom: 60px;
+  }
+  .project-font-inner{
+    padding-top: 171px;
+    padding-bottom: 298px;
   }
 }
 @media (min-width: 768px) {
@@ -2494,7 +2535,6 @@ ul.project-tasks {
     margin-top: -65px;
   }
   .project-short-img {
-    width: 450px;
     height: 262px;
   }
   .project-short .text-page {
@@ -2509,17 +2549,16 @@ ul.project-tasks {
   }
   .project-personal-acc-info {
     padding-top: 40px;
+    padding-bottom: 30px;
   }
   .project-title-box::after,
   .project-personal-acc::after,
   .project-preview::after {
     height: 121px;
-    bottom: -119px;
   }
   .project-personal-acc::before,
   .project-preview::before {
     height: 121px;
-    top: -119px;
   }
   .project-made {
     margin-bottom: 170px;
@@ -2565,7 +2604,7 @@ ul.project-tasks {
     }
   }
   .project-personal-acc {
-    margin-bottom: 1200px;
+    margin-bottom: 120px;
   }
   .project-mobal {
     margin-bottom: 70px;
@@ -2574,7 +2613,47 @@ ul.project-tasks {
     margin-bottom: 70px;
   }
   .project-cart-info-inner {
-    grid-template-areas: "";
+    grid-template-areas:
+      "project-cart-img project-cart-title"
+      "project-cart-img project-cart-info";
+    gap: 0 30px;
+    grid-template-columns: 50% auto;
+  }
+  .project-cart-info-img {
+    padding-bottom: 76%;
+  }
+  .project-cart-info-img {
+    margin-bottom: 0;
+  }
+  .project-cart-info {
+    margin-bottom: 70px;
+  }
+  .project-sketch {
+    margin-bottom: 70px;
+  }
+
+  .project-sketch-img {
+    height: 747px;
+  }
+
+  .project-sketch.mod {
+    height: 747px;
+    .project-sketch-img {
+      background-image: url(../img/project-sketch-2.jpg);
+    }
+  }
+  .project-title {
+    font-size: 40px;
+    line-height: 48px;
+  }
+  ul.project-tasks{
+    margin-bottom: 48px;
+  }
+  .project-personal-acc-img{
+    margin-bottom: 0;
+  }
+  .project-font-inner{
+    padding-bottom: 316px;
   }
 }
 @media (min-width: 992px) {
@@ -2606,8 +2685,7 @@ ul.project-tasks {
       padding-right: 30px;
     }
     .header-menu ul > li.is-parent > a span::after,
-    .mobile-navigation-menu
-      span.mobile-navigation-sub-menu-heading-title:after {
+    .mobile-navigation-menu span.mobile-navigation-sub-menu-heading-title:after {
       right: 30px;
     }
     .mobile-navigation-menu .first-level {
@@ -2751,16 +2829,6 @@ ul.project-tasks {
     max-width: 329px;
   }
   .project-personal-acc-img {
-    height: auto;
-    padding-bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-      position: static;
-      width: 320px;
-      height: 302px;
-    }
   }
   .project-font-circle.circle-1 {
     top: 30px;
@@ -2826,6 +2894,26 @@ ul.project-tasks {
   }
   .project-slider-inner {
     margin-bottom: 80px;
+  }
+  .project-cart-info {
+    margin-bottom: 80px;
+  }
+  .project-sketch {
+    margin-bottom: 80px;
+  }
+  .project-sketch.mod {
+    position: relative;
+    height: 768px;
+    .project-sketch-img {
+      background-image: url(../img/project-sketch-3.jpg);
+    }
+  }
+  .project-sketch-img {
+    height: 768px;
+  }
+  .project-font-inner{
+    padding-top: 201px;
+    padding-bottom: 333px;
   }
 }
 @media (min-width: 1200px) {
@@ -2948,7 +3036,6 @@ ul.project-tasks {
     margin-top: -110px;
   }
   .project-short-img {
-    width: 598px;
     height: 348px;
   }
   .project-short .text-page {
@@ -2961,22 +3048,16 @@ ul.project-tasks {
   .project-personal-acc::after,
   .project-preview::after {
     height: 134px;
-    bottom: -132px;
   }
   .project-personal-acc::before,
   .project-preview::before {
     height: 134px;
-    top: -132px;
   }
   .project-made {
     margin-bottom: 203px;
   }
   .project-personal-acc-info {
     padding-top: 80px;
-  }
-  .project-personal-acc-img img {
-    width: 438px;
-    height: 413px;
   }
   .project-personal-acc-img {
     justify-content: flex-start;
@@ -3071,6 +3152,50 @@ ul.project-tasks {
   .project-slider-inner {
     margin-bottom: 100px;
   }
+  .project-cart-info {
+    margin-bottom: 100px;
+  }
+  .project-sketch {
+    margin-bottom: 100px;
+  }
+  .project-sketch-img {
+    height: 960px;
+  }
+
+  .project-sketch.mod {
+    position: relative;
+    height: 960px;
+    .project-sketch-img {
+      background-image: url(../img/project-sketch-4.jpg);
+    }
+  }
+  ul.project-tasks li + li{
+    margin-top: 37px;
+  }
+  ul.project-tasks{
+    margin-bottom: 56px;
+  }
+  .project-made-item-bg{
+    width: 120px;
+    height: 120px;
+    font-size: 55px;
+    margin-bottom: 28px;
+  }
+  .project-made-item-title{
+    font-size: 19px;
+    line-height: 28px;
+  }
+  .project-personal-acc-info-descr{
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .project-personal-acc-img{
+    height: 305px;
+  }
+  .project-font-inner{
+   padding-top: 190px; 
+   padding-bottom: 381px;
+  }
 }
 @media (min-width: 1400px) {
   ul.prices-promo-list {
@@ -3084,6 +3209,7 @@ ul.project-tasks {
     flex-basis: 50%;
     max-width: 50%;
   }
+
 }
 @media (min-width: 1680px) {
   //primary 1500
@@ -3133,7 +3259,6 @@ ul.project-tasks {
     margin-top: -120px;
   }
   .project-short-img {
-    width: 764px;
     height: 443px;
   }
   .project-short .text-page {
@@ -3143,21 +3268,16 @@ ul.project-tasks {
   .project-personal-acc::after,
   .project-preview::after {
     height: 181px;
-    bottom: -179px;
   }
   .project-personal-acc::before,
   .project-preview::before {
     height: 181px;
-    top: -179px;
   }
   .project-made {
     margin-bottom: 260px;
   }
   .project-personal-acc-info {
     padding-top: 70px;
-  }
-  .project-personal-acc-img {
-    justify-content: center;
   }
   .project-personal-acc-info {
     max-width: 537px;
@@ -3215,4 +3335,25 @@ ul.project-tasks {
   .project-preview {
     margin-bottom: 180px;
   }
+  .project-cart-info-inner {
+    gap: 0 160px;
+  }
+  .project-sketch-img {
+    height: 970px;
+  }
+  .project-sketch.mod {
+    position: relative;
+    height: 970px;
+    .project-sketch-img {
+      background-image: url(../img/project-sketch-5.jpg);
+    }
+  }
+  .project-title {
+    font-size: 54px;
+    line-height: 1.2;
+  }
+  .project-font-inner{
+    padding-top: 171px; 
+    padding-bottom: 481px;
+   }
 }
