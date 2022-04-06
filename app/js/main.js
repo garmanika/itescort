@@ -143,6 +143,8 @@ $(function () {
       },
     },
   });
+  $.fancybox.defaults.backFocus = false
+  
   const swiper3 = new Swiper(".project-preview-slider", {
     slidesPerView: 1,
     spaceBetween: 30,
