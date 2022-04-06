@@ -19,7 +19,6 @@ $(function () {
     svg4everybody({});
   });
 
-
   let mobileNavParent = $(".mobile-navigation-menu .is-parent > a");
   let mobileNavBack = $(".mobile-navigation-sub-menu-heading");
   mobileNavParent.on("click", function (e) {
@@ -54,7 +53,7 @@ $(function () {
       el: ".feedback-slider .swiper-pagination",
       clickable: true,
       renderBullet: function (index, className) {
-        if ((index + 1) >= 10) {
+        if (index + 1 >= 10) {
           return (
             '<span class="' +
             className +
@@ -62,8 +61,7 @@ $(function () {
             (index + 1) +
             "</span></span>"
           );
-        }
-        else {
+        } else {
           return (
             '<span class="' +
             className +
@@ -73,7 +71,6 @@ $(function () {
             "</span></span>"
           );
         }
-
       },
     },
     breakpoints: {
@@ -103,7 +100,7 @@ $(function () {
       el: ".prices-example .swiper-pagination",
       clickable: true,
       renderBullet: function (index, className) {
-        if ((index + 1) >= 10) {
+        if (index + 1 >= 10) {
           return (
             '<span class="' +
             className +
@@ -111,8 +108,7 @@ $(function () {
             (index + 1) +
             "</span></span>"
           );
-        }
-        else {
+        } else {
           return (
             '<span class="' +
             className +
@@ -122,7 +118,6 @@ $(function () {
             "</span></span>"
           );
         }
-
       },
     },
     breakpoints: {
@@ -143,8 +138,8 @@ $(function () {
       },
     },
   });
-  $.fancybox.defaults.backFocus = false
-  
+  $.fancybox.defaults.backFocus = false;
+
   const swiper3 = new Swiper(".project-preview-slider", {
     slidesPerView: 1,
     spaceBetween: 30,
@@ -154,7 +149,7 @@ $(function () {
       el: ".project-preview-slider .swiper-pagination",
       clickable: true,
       renderBullet: function (index, className) {
-        if ((index + 1) >= 10) {
+        if (index + 1 >= 10) {
           return (
             '<span class="' +
             className +
@@ -162,8 +157,7 @@ $(function () {
             (index + 1) +
             "</span></span>"
           );
-        }
-        else {
+        } else {
           return (
             '<span class="' +
             className +
@@ -173,10 +167,9 @@ $(function () {
             "</span></span>"
           );
         }
-
       },
     },
-		navigation: {
+    navigation: {
       nextEl: ".project-preview-slider .swiper-button-next",
       prevEl: ".project-preview-slider .swiper-button-prev",
     },
@@ -190,7 +183,7 @@ $(function () {
       el: ".project-slider .swiper-pagination",
       clickable: true,
       renderBullet: function (index, className) {
-        if ((index + 1) >= 10) {
+        if (index + 1 >= 10) {
           return (
             '<span class="' +
             className +
@@ -198,8 +191,7 @@ $(function () {
             (index + 1) +
             "</span></span>"
           );
-        }
-        else {
+        } else {
           return (
             '<span class="' +
             className +
@@ -209,88 +201,79 @@ $(function () {
             "</span></span>"
           );
         }
-
       },
     },
-		navigation: {
+    navigation: {
       nextEl: ".project-slider .swiper-button-next",
       prevEl: ".project-slider .swiper-button-prev",
     },
   });
 
-
-
-  let phoneInputs = $('.add-phone-mask');
+  let phoneInputs = $(".add-phone-mask");
   phoneInputs.each(function (index, el) {
     $(this).inputmask({
       mask: "+7 (999) 999 99 99",
       onBeforePaste: function (pastedValue, opts) {
-        let clearValue = pastedValue.replace(/\D/g, '');
-        if (clearValue.indexOf('89') === 0) {
-          return clearValue.replace('89', '+79');
+        let clearValue = pastedValue.replace(/\D/g, "");
+        if (clearValue.indexOf("89") === 0) {
+          return clearValue.replace("89", "+79");
         }
       },
       showMaskOnHover: false,
-      clearIncomplete: true
+      clearIncomplete: true,
     });
   });
 
   phoneInputs.on("keyup", function (event) {
     let value = $(this).inputmask("unmaskedvalue");
     if (value.length === 2) {
-      if (value.indexOf('89') === 0 || value.indexOf('79') === 0) {
-        $(this).val('9');
+      if (value.indexOf("89") === 0 || value.indexOf("79") === 0) {
+        $(this).val("9");
       }
     }
   });
-  // ymaps.ready(init);
 
-  // function init() {
-  //   let myMap = new ymaps.Map("map", {
-  //     center: [54.50337577744105, 36.30289029629514],
-  //     zoom: 18
-  //   }, {
-  //     searchControlProvider: 'yandex#search'
-  //   });
-  //   // Метка со своей картинкой.
-
-  //   let myPlacemark = new ymaps.Placemark([54.50337577744105, 36.30289029629514], null, {
-  //     iconLayout: 'default#image',
-  //     iconImageHref: "img/svg-origin/map-icon.svg",
-  //     iconImageSize: [32, 32],
-
-  //   });
-  //   myMap.geoObjects.add(myPlacemark);
-  //   myMap.controls.remove('zoomControl');
-  // }
-  ymaps.ready(init);
-  let myMap;
-
-  function init() {
-
-    let i;
-    let place;
-    let pointer = [[54.50337577744105, 36.30289029629514], [54.52, 36.25]];
-
-    let myMap = new ymaps.Map("map", {
-
-      center: [54.50337577744105, 36.30289029629514],
-      zoom: 13,
-
-
+  function createContactsMap(containerId, data = {}) {
+    ymaps.ready(function () {
+      let map = new ymaps.Map(containerId, {
+        center: data.mapCenter,
+        zoom: data.mapZoom,
+        controls: ["zoomControl"],
+      });
+      let geoCollection = new ymaps.GeoObjectCollection();
+      for (let i = 0; i < data.mapPoints.length; i++) {
+        geoCollection.add(
+          new ymaps.Placemark(
+            data.mapPoints[i],
+            {},
+            {
+              iconLayout: "default#image",
+              iconImageHref: "img/svg-origin/map-icon.svg",
+              iconImageSize: [32, 32],
+            }
+          )
+        );
+      }
+			
+      map.geoObjects.add(geoCollection);
+      map
+        .setBounds(map.geoObjects.getBounds(), {
+          zoomMargin: [0, 13],
+          checkZoomRange: true,
+        })
+        .then(function () {
+          if (map.getZoom() > 13) map.setZoom(13);
+        });
     });
+  }
 
-    for (i = 0; i < pointer.length; ++i) {
-
-      place = new ymaps.Placemark(pointer[i],{},{
-        iconLayout: 'default#image',
-        iconImageHref: "img/svg-origin/map-icon.svg",
-        iconImageSize: [32, 32],
-      }     
-      );
-      myMap.geoObjects.add(place);
-
-    }
-
+  let detailMapData = {
+    mapCenter: [54.50337577744105, 36.30289029629514],
+    mapZoom: 13,
+    mapPoints: [
+      [54.50337577744105, 36.30289029629514],
+      [54.52, 36.25],
+    ],
   };
+  createContactsMap("map", detailMapData);
 });
